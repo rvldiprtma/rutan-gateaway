@@ -110,48 +110,50 @@
                                         <div class="modal-body">
 
 
-                                            <form class="user" method="post" action="<?= base_url('menu/editSubmenu') ?>">
-                                                <input type="hidden" name="id" value="<?= $sm['id']; ?>">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control form-control-user" id="nama_submenu" placeholder="Nama Submenu ..." name="nama_submenu" value="<?= $sm['title'] ?>" required style="border-radius: 100px">
-                                                </div>
+                                            <!-- <form class="user" method="post" action="<?= base_url('menu/editSubmenu') ?>"> -->
+                                            <?= form_open('menu/editSubmenu', ['class' => 'user', 'method' => 'post']) ?>
+                                            <input type="hidden" name="id" value="<?= $sm['id']; ?>">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control form-control-user" id="nama_submenu" placeholder="Nama Submenu ..." name="nama_submenu" value="<?= $sm['title'] ?>" required style="border-radius: 100px">
+                                            </div>
 
-                                                <div class="form-group">
-                                                    <select class="form-control" id="exampleFormControlSelect1" name="menu_id" style="border-radius: 100px">
-                                                        <option disabled selected>- Pilih -</option>
-                                                        <?php foreach ($menu as $m) : ?>
-                                                            <?php if ($m->id == $sm['menu_id']) : ?>
-                                                                <option value="<?= $m->id;  ?>" selected><?= ucfirst($m->menu);   ?></option>
-                                                            <?php else : ?>
-                                                                <option value="<?= $m->id;  ?>"><?= ucfirst($m->menu);   ?></option>
-                                                            <?php endif; ?>
-                                                        <?php endforeach; ?>
-                                                    </select>
-                                                </div>
+                                            <div class="form-group">
+                                                <select class="form-control" id="exampleFormControlSelect1" name="menu_id" style="border-radius: 100px">
+                                                    <option disabled selected>- Pilih -</option>
+                                                    <?php foreach ($menu as $m) : ?>
+                                                        <?php if ($m->id == $sm['menu_id']) : ?>
+                                                            <option value="<?= $m->id;  ?>" selected><?= ucfirst($m->menu);   ?></option>
+                                                        <?php else : ?>
+                                                            <option value="<?= $m->id;  ?>"><?= ucfirst($m->menu);   ?></option>
+                                                        <?php endif; ?>
+                                                    <?php endforeach; ?>
+                                                </select>
+                                            </div>
 
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control form-control-user" id="icon_submenu" placeholder="Icon Submenu ..." name="icon_submenu" value="<?= $sm['icon'] ?>" required style="border-radius: 100px">
-                                                </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control form-control-user" id="icon_submenu" placeholder="Icon Submenu ..." name="icon_submenu" value="<?= $sm['icon'] ?>" required style="border-radius: 100px">
+                                            </div>
 
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control form-control-user" id="url_submenu" placeholder="URL Submenu ..." name="url_submenu" value="<?= $sm['url'] ?>" required style="border-radius: 100px">
-                                                </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control form-control-user" id="url_submenu" placeholder="URL Submenu ..." name="url_submenu" value="<?= $sm['url'] ?>" required style="border-radius: 100px">
+                                            </div>
 
-                                                <div class="form-group">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="1" id="is_active" name="is_active" checked>
-                                                        <label class="form-check-label" for="is_active">
-                                                            Aktif?
-                                                        </label>
-                                                    </div>
+                                            <div class="form-group">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="1" id="is_active" name="is_active" <?= $sm['is_active'] ? 'checked' : '' ?>>
+                                                    <label class="form-check-label" for="is_active">
+                                                        Aktif?
+                                                    </label>
                                                 </div>
+                                            </div>
 
-                                                <!-- </form> -->
-                                                <div class="modal-footer">
-                                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-                                                    <button class="btn btn-primary" type="submit">Edit</button>
-                                                </div>
-                                            </form>
+                                            <!-- </form> -->
+                                            <div class="modal-footer">
+                                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                                                <button class="btn btn-primary" type="submit">Edit</button>
+                                            </div>
+                                            <!-- </form> -->
+                                            <?= form_close() ?>
                                         </div>
                                     </div>
                                 </div>
@@ -185,47 +187,49 @@
             <div class="modal-body">
 
 
-                <form class="user" method="post" action="<?= base_url('menu/submenu'); ?>">
-                    <div class="form-group">
-                        <input type="text" class="form-control form-control-user" id="nama_submenu" placeholder="Nama Submenu ..." name="nama_submenu" value="" required>
-                    </div>
+                <!-- <form class="user" method="post" action="<?= base_url('menu/submenu'); ?>"> -->
+                <?= form_open(current_url(), ['class' => 'user', 'method' => 'post']) ?>
+                <div class="form-group">
+                    <input type="text" class="form-control form-control-user" id="nama_submenu" placeholder="Nama Submenu ..." name="nama_submenu" value="" required>
+                </div>
 
-                    <div class="form-group">
-                        <select class="form-control" id="exampleFormControlSelect1" name="menu_id" style="border-radius: 100px">
-                            <option disabled selected>- Pilih -</option>
-                            <?php foreach ($menu as $m) : ?>
-                                <?php if ($m->id == set_value('menu_id')) : ?>
-                                    <option value="<?= $m->id;  ?>" selected><?= ucfirst($m->menu);   ?></option>
-                                <?php else : ?>
-                                    <option value="<?= $m->id;  ?>"><?= ucfirst($m->menu);   ?></option>
-                                <?php endif; ?>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
+                <div class="form-group">
+                    <select class="form-control" id="exampleFormControlSelect1" name="menu_id" style="border-radius: 100px">
+                        <option disabled selected>- Pilih -</option>
+                        <?php foreach ($menu as $m) : ?>
+                            <?php if ($m->id == set_value('menu_id')) : ?>
+                                <option value="<?= $m->id;  ?>" selected><?= ucfirst($m->menu);   ?></option>
+                            <?php else : ?>
+                                <option value="<?= $m->id;  ?>"><?= ucfirst($m->menu);   ?></option>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
 
-                    <div class="form-group">
-                        <input type="text" class="form-control form-control-user" id="icon_submenu" placeholder="Icon Submenu ..." name="icon_submenu" value="" required>
-                    </div>
+                <div class="form-group">
+                    <input type="text" class="form-control form-control-user" id="icon_submenu" placeholder="Icon Submenu ..." name="icon_submenu" value="" required>
+                </div>
 
-                    <div class="form-group">
-                        <input type="text" class="form-control form-control-user" id="url_submenu" placeholder="URL Submenu ..." name="url_submenu" value="" required>
-                    </div>
+                <div class="form-group">
+                    <input type="text" class="form-control form-control-user" id="url_submenu" placeholder="URL Submenu ..." name="url_submenu" value="" required>
+                </div>
 
-                    <div class="form-group">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="1" id="is_active" name="is_active" checked>
-                            <label class="form-check-label" for="is_active">
-                                Aktif?
-                            </label>
-                        </div>
+                <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="1" id="is_active" name="is_active" checked>
+                        <label class="form-check-label" for="is_active">
+                            Aktif?
+                        </label>
                     </div>
+                </div>
 
-                    <!-- </form> -->
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-                        <button class="btn btn-primary" type="submit">Tambah</button>
-                    </div>
-                </form>
+                <!-- </form> -->
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                    <button class="btn btn-primary" type="submit">Tambah</button>
+                </div>
+                <!-- </form> -->
+                <?= form_close() ?>
             </div>
         </div>
     </div>

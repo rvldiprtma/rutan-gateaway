@@ -84,3 +84,26 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    $(document).ready(() => {
+        $('.form-check-input').on('click', function() {
+            let menuId = $(this).data('menu');
+            let roleId = $(this).data('role');
+            let data = {
+                menuId: menuId,
+                roleId: roleId,
+                '<?= $this->security->get_csrf_token_name(); ?>': '<?= $this->security->get_csrf_hash(); ?>'
+            }
+
+            $.post({
+                url: "<?= base_url('administrator/changeaccess') ?>",
+                data: data,
+                success: function() {
+                    document.location.href = "<?= base_url('administrator/roleaccess/') ?>" + roleId;
+                }
+            });
+        })
+    })
+</script>

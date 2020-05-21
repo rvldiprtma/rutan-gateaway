@@ -18,19 +18,21 @@
 
                                 <?= $this->session->flashdata('message'); ?>
 
-                                <form class="user" method="post" action="<?= base_url('auth'); ?>">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control form-control-user" id="email" aria-describedby="emailHelp" placeholder="Masukan Email ..." name="email" value="<?= set_value('email') ?>">
-                                        <?= form_error('email', '<small class="text-danger pl-3">', '</small>') ?>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" class="form-control form-control-user" id="password" placeholder="Password ..." name="password">
-                                        <?= form_error('password', '<small class="text-danger pl-3">', '</small>') ?>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary btn-user btn-block">
-                                        Login
-                                    </button>
-                                </form>
+                                <!-- <form class="user" method="post" action="<?= base_url('auth'); ?>"> -->
+                                <?= form_open(current_url(), ['class' => 'user', 'method' => 'post']) ?>
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" id="email" aria-describedby="emailHelp" placeholder="Masukan Email ..." name="email" value="<?= set_value('email') ?>">
+                                    <?= form_error('email', '<small class="text-danger pl-3">', '</small>') ?>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control form-control-user" id="password" placeholder="Password ..." name="password">
+                                    <?= form_error('password', '<small class="text-danger pl-3">', '</small>') ?>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-user btn-block">
+                                    Login
+                                </button>
+                                <!-- </form> -->
+                                <?= form_close() ?>
                                 <hr>
                                 <div class="text-center">
                                     <!-- <a class="small" href="forgot-password.html">Forgot Password?</a> -->

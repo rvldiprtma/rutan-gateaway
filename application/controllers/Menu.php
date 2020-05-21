@@ -79,7 +79,7 @@ class Menu extends CI_Controller
                 'menu_id' => $this->input->post('menu_id'),
                 'url' => $this->input->post('url_submenu'),
                 'icon' => $this->input->post('icon_submenu'),
-                'is_active' => $this->input->post('is_active'),
+                'is_active' => $this->input->post('is_active') ? $this->input->post('is_active') : 0,
 
             ];
 

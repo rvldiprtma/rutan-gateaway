@@ -64,24 +64,7 @@
 	});
 </script>
 
-<script>
-	$('.form-check-input').on('click', function() {
-		const menuId = $(this).data('menu');
-		const roleId = $(this).data('role');
 
-		$.ajax({
-			url: "<?= base_url('administrator/changeaccess') ?>",
-			type: 'post',
-			data: {
-				menuId: menuId,
-				roleId: roleId
-			},
-			success: function() {
-				document.location.href = "<?= base_url('administrator/roleaccess/') ?>" + roleId;
-			}
-		});
-	})
-</script>
 
 </body>
 

@@ -96,17 +96,20 @@
                                             <div class="modal-body">
 
 
-                                                <form class="user" method="post" action="<?= base_url('administrator/editRole'); ?>">
-                                                    <input type="hidden" name="role_id" value="<?= $r['id']; ?>">
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control form-control-user" id="nama_role" placeholder="Nama Role ..." name="nama_role" value="<?= $r['role'] ?>" required>
-                                                    </div>
-                                                    <!-- </form> -->
-                                                    <div class="modal-footer">
-                                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-                                                        <button class="btn btn-primary" type="submit">Edit</button>
-                                                    </div>
-                                                </form>
+                                                <!-- <form class="user" method="post" action="<?= base_url('administrator/editRole'); ?>"> -->
+
+                                                <?= form_open('administrator/editRole', ['class' => 'user', 'method' => 'post']) ?>
+                                                <input type="hidden" name="role_id" value="<?= $r['id']; ?>">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control form-control-user" id="nama_role" placeholder="Nama Role ..." name="nama_role" value="<?= $r['role'] ?>" required>
+                                                </div>
+                                                <!-- </form> -->
+                                                <div class="modal-footer">
+                                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                                                    <button class="btn btn-primary" type="submit">Edit</button>
+                                                </div>
+                                                <!-- </form> -->
+                                                <?= form_close() ?>
                                             </div>
                                         </div>
                                     </div>
@@ -142,16 +145,18 @@
             <div class="modal-body">
 
 
-                <form class="user" method="post" action="<?= base_url('administrator/role'); ?>">
-                    <div class="form-group">
-                        <input type="text" class="form-control form-control-user" id="nama_role" placeholder="Nama Role ..." name="nama_role" value="" required>
-                    </div>
-                    <!-- </form> -->
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-                        <button class="btn btn-primary" type="submit">Tambah</button>
-                    </div>
-                </form>
+                <!-- <form class="user" method="post" action="<?= base_url('administrator/role'); ?>"> -->
+                <?= form_open(current_url(), ['class' => 'user', 'method' => 'post']) ?>
+                <div class="form-group">
+                    <input type="text" class="form-control form-control-user" id="nama_role" placeholder="Nama Role ..." name="nama_role" value="" required>
+                </div>
+                <!-- </form> -->
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                    <button class="btn btn-primary" type="submit">Tambah</button>
+                </div>
+                <!-- </form> -->
+                <?= form_close() ?>
             </div>
         </div>
     </div>

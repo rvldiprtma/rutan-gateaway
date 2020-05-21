@@ -102,18 +102,20 @@
                                             <div class="modal-body">
 
 
-                                                <form class="user" method="post" action="<?= base_url('menu/editMenu') ?>">
-                                                    <input type="hidden" name="menu_id" value="<?= $m['id']; ?>">
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control form-control-user" id="nama_menu" placeholder="Nama Menu ..." name="nama_menu" value="<?= $m['menu']; ?>" required>
-                                                    </div>
+                                                <!-- <form class="user" method="post" action="<?= base_url('menu/editMenu') ?>"> -->
+                                                <?= form_open('menu/editMenu', ['class' => 'user', 'method' => 'post']) ?>
+                                                <input type="hidden" name="menu_id" value="<?= $m['id']; ?>">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control form-control-user" id="nama_menu" placeholder="Nama Menu ..." name="nama_menu" value="<?= $m['menu']; ?>" required>
+                                                </div>
 
-                                                    <!-- </form> -->
-                                                    <div class="modal-footer">
-                                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-                                                        <button class="btn btn-primary" type="submit">Edit</button>
-                                                    </div>
-                                                </form>
+                                                <!-- </form> -->
+                                                <div class="modal-footer">
+                                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                                                    <button class="btn btn-primary" type="submit">Edit</button>
+                                                </div>
+                                                <!-- </form> -->
+                                                <?= form_close() ?>
                                             </div>
                                         </div>
                                     </div>
@@ -148,16 +150,18 @@
             <div class="modal-body">
 
 
-                <form class="user" method="post" action="<?= base_url('menu'); ?>">
-                    <div class="form-group">
-                        <input type="text" class="form-control form-control-user" id="nama_menu" placeholder="Nama Menu ..." name="nama_menu" value="" required>
-                    </div>
-                    <!-- </form> -->
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-                        <button class="btn btn-primary" type="submit">Tambah</button>
-                    </div>
-                </form>
+                <!-- <form class="user" method="post" action="<?= base_url('menu'); ?>"> -->
+                <?= form_open(current_url(), ['class' => 'user', 'method' => 'post']) ?>
+                <div class="form-group">
+                    <input type="text" class="form-control form-control-user" id="nama_menu" placeholder="Nama Menu ..." name="nama_menu" value="" required>
+                </div>
+                <!-- </form> -->
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                    <button class="btn btn-primary" type="submit">Tambah</button>
+                </div>
+                <!-- </form> -->
+                <?= form_close() ?>
             </div>
         </div>
     </div>
